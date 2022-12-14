@@ -1,6 +1,5 @@
+import style from './product.module.css';
 import React from 'react';
-import style from './product.module.css'
-
 import { AppContext } from '../../../App';
 
 const Product = (props) => {
@@ -12,7 +11,7 @@ const Product = (props) => {
 
     const onClickFav =()=>{
         setFav(!fav);
-        let id = props.id
+        let id = props.id 
         let myId = props.myId
         let title = props.title
         let description = props.description
@@ -23,7 +22,7 @@ const Product = (props) => {
 
     const onClickAdd =()=>{
         setAdded(!added);
-        let id = props.id
+        let id = props.id 
         let myId = props.myId
         let title = props.title
         let description = props.description
@@ -35,18 +34,18 @@ const Product = (props) => {
     return (
         <div className={style.cart_item}>
             {
-                context.isFav(props.myId) == true ?
+             context.isFav(props.myId) == true ?
 
-                    <button
-                        className={style.fav_btn_add}
-                        onClick={onClickFav}>Добавлен в избранное
-                    </button>
-                    :
-                    <button
-                        className={style.fav_btn}
-                        onClick={onClickFav}>Добавить в избранное
-                    </button>
-
+             <button 
+             className={style.fav_btn_add} 
+             onClick={onClickFav}>Добавлен в избранное
+             </button>
+                :
+            <button 
+            className={style.fav_btn} 
+            onClick={onClickFav}>Добавить в избранное
+            </button>
+           
             }
 
             <img className={style.cart_img} src={props.img}></img>
@@ -56,14 +55,14 @@ const Product = (props) => {
             <p className={style.price}>Цена:</p>
             <div className={style.cart_price}>
                 <span>{props.price}</span>
-                <button className={  style.add_cart}
-                        onClick={onClickAdd} > { context.isAdded(props.myId) ?
-                    <img width={13}
-                         src={context.isAdded(props.myId) ? '/img/icon.png':'' }
-                         alt=""/>:'Оставить заявку' }
-
+                <button className={  style.add_cart} 
+                onClick={onClickAdd} > { context.isAdded(props.myId) ?  
+                <img width={13}
+                 src={context.isAdded(props.myId) ? '/img/icon.png':'' }
+                 alt=""/>:'Оставить заявку' }
+               
                 </button>
-
+                
             </div>
         </div>
     )
